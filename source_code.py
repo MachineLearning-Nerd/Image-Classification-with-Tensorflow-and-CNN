@@ -16,12 +16,6 @@ from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten, Conv2D,
 
 
 #%%
-# To run on GPU
-gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.7)
-sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
-
-
-#%%
 # Fetch all the files from the image folder
 files = glob.glob('images/**')
 print(files)
@@ -194,7 +188,7 @@ model.add(Activation("softmax"))
 # Model compilation is done
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy',metrics=['accuracy'])
 # Here we are going to train the model
-model.fit(x_train, y_train,batch_size=100, validation_data=(x_val, y_val), epochs = 100)
+model.fit(x_train, y_train,batch_size=100, validation_data=(x_val, y_val), epochs = 10)
  
 
 
